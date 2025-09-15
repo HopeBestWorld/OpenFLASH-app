@@ -11,10 +11,12 @@
     <div id="root"></div>
 
     <script type="module">
-        // Wait for stlite to be defined
-        if (!window.stlite) {
-            console.error("stlite not loaded yet!");
-        } else {
+        window.addEventListener("load", () => {
+            if (!window.stlite) {
+                console.error("❌ stlite not loaded!");
+                return;
+            }
+
             stlite.mount({
                 entrypoint: "app.py",
                 files: {
@@ -24,16 +26,18 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import micropip
+
+# install your package from PyPI
 await micropip.install("open-flash")
 import open_flash
 from openflash.multi_equations import m_k_newton
 
 st.title("MEEM Multi-Cylinder Simulation")
-st.write("open-flash loaded successfully")
-          `
+st.write("✅ open-flash loaded successfully!")
+            `
                 }
             });
-        }
+        });
     </script>
 </body>
 
